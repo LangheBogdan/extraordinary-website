@@ -318,7 +318,7 @@ h6 {
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-template-rows: auto auto;
-  gap: var(--spacing-xl);
+  gap: var(--spacing-sm);
 }
 
 .projects__logo {
@@ -329,7 +329,7 @@ h6 {
   align-items: center;
   background-color: var(--color-blue-100);
   border-radius: var(--border-radius);
-  padding: var(--spacing-xl);
+  padding: var(--spacing-sm);
 }
 
 .projects__logo-image {
@@ -342,12 +342,12 @@ h6 {
   grid-row: 1 / 2;
   background-color: var(--color-blue-200);
   border-radius: var(--border-radius);
-  padding: var(--spacing-lg);
+  padding: var(--spacing-sm);
 }
 
 .projects__services-title {
   color: var(--color-blue-900);
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
   font-size: 1.5rem;
 }
 
@@ -355,7 +355,7 @@ h6 {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: var(--spacing-md);
-  padding-left: var(--spacing-lg);
+  padding-left: var(--spacing-sm);
 }
 
 .projects__services-item {
@@ -368,25 +368,25 @@ h6 {
   grid-row: 2 / 3;
   background-color: var(--color-blue-200);
   border-radius: var(--border-radius);
-  padding: var(--spacing-lg);
+  padding: var(--spacing-sm);
 }
 
 .projects__list-title {
   color: var(--color-blue-900);
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
   font-size: 1.5rem;
 }
 
 .projects__list-items {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: var(--spacing-lg);
+  gap: var(--spacing-sm);
 }
 
 .projects__item {
   background-color: white;
   border-radius: var(--border-radius);
-  padding: var(--spacing-md);
+  padding: var(--spacing-sm);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }

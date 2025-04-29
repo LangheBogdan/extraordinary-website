@@ -342,7 +342,7 @@ h6 {
   grid-row: 1 / 2;
   background-color: var(--color-blue-200);
   border-radius: var(--border-radius);
-  padding: var(--spacing-sm);
+  padding: var(--spacing-xl);
 }
 
 .projects__services-title {
@@ -368,7 +368,7 @@ h6 {
   grid-row: 2 / 3;
   background-color: var(--color-blue-200);
   border-radius: var(--border-radius);
-  padding: var(--spacing-sm);
+  padding: var(--spacing-xl);
 }
 
 .projects__list-title {

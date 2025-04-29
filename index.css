@@ -263,6 +263,21 @@ h6 {
   text-align: center;
 }
 
+.footer__copyright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer__copyright-text {
+  font-size: 0.875rem;
+  opacity: 0.9;
+}
+
+.footer__copyright-year {
+  font-weight: 500;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .header {

@@ -3,35 +3,76 @@
 // This will run in strict mode
 console.log("JavaScript is connected and running in strict mode!");
 
-// Hamburger menu functionality
-document.addEventListener('DOMContentLoaded', () => {
-  const hamburger = document.querySelector('.header__hamburger');
-  const nav = document.querySelector('.header__nav');
+// IIFE (Immediately Invoked Function Expression) for better scoping
+(() => {
+  // DOM elements
+  const elements = {
+    hamburger: document.querySelector('.header__hamburger'),
+    nav: document.querySelector('.header__nav'),
+    navLinks: document.querySelectorAll('.header__nav-link'),
+    copyrightYear: document.getElementById('copyrightYear')
+  };
   
-  if (hamburger) {
-    hamburger.addEventListener('click', () => {
-      // Toggle active class on hamburger
-      hamburger.classList.toggle('hamburger--active');
+  /**
+   * Initialize all event listeners
+   */
+  const initEventListeners = () => {
+    // Hamburger menu functionality
+    if (elements.hamburger) {
+      elements.hamburger.addEventListener('click', toggleMobileMenu);
       
-      // Toggle active class on nav to show/hide the menu
-      nav.classList.toggle('header__nav--active');
-    });
-    
-    // Close the menu when clicking outside
-    document.addEventListener('click', (event) => {
-      if (!nav.contains(event.target) && nav.classList.contains('header__nav--active')) {
-        nav.classList.remove('header__nav--active');
-        hamburger.classList.remove('hamburger--active');
-      }
-    });
-    
-    // Close the menu when clicking a nav link
-    const navLinks = document.querySelectorAll('.header__nav-link');
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('header__nav--active');
-        hamburger.classList.remove('hamburger--active');
+      // Close the menu when clicking outside
+      document.addEventListener('click', (event) => {
+        if (!elements.nav.contains(event.target) && elements.nav.classList.contains('header__nav--active')) {
+          closeMobileMenu();
+        }
       });
-    });
+      
+      // Close the menu when clicking a nav link
+      elements.navLinks.forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+      });
+    }
+  };
+  
+  /**
+   * Toggle the mobile menu state
+   */
+  const toggleMobileMenu = () => {
+    elements.hamburger.classList.toggle('hamburger--active');
+    elements.nav.classList.toggle('header__nav--active');
+  };
+  
+  /**
+   * Close the mobile menu
+   */
+  const closeMobileMenu = () => {
+    elements.nav.classList.remove('header__nav--active');
+    elements.hamburger.classList.remove('hamburger--active');
+  };
+  
+  /**
+   * Update copyright year with current year
+   */
+  const updateCopyrightYear = () => {
+    if (elements.copyrightYear) {
+      const currentYear = new Date().getFullYear();
+      elements.copyrightYear.textContent = currentYear;
+    }
+  };
+  
+  /**
+   * Initialize the application
+   */
+  const init = () => {
+    updateCopyrightYear();
+    initEventListeners();
+  };
+  
+  // Run when DOM is fully loaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
   }
-});
+})();

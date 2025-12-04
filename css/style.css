@@ -260,6 +260,34 @@ footer {
     fill: var(--cyan);
 }
 
+/* Footer Mobile Styles */
+@media (max-width: 600px) {
+    footer {
+        padding: 56px 0;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .footer-left {
+        flex-direction: column;
+        gap: 40px;
+        width: 100%;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+}
+
 /* Mobile Menu */
 @media (max-width: 768px) {
     /* Show hamburger menu toggle */

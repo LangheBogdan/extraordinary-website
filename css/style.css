@@ -46,6 +46,9 @@ body {
     color: var(--grayish-dark-blue);
     background-color: var(--very-light-gray);
     font-size: 16px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 img,
@@ -121,6 +124,7 @@ a {
     max-width: var(--container-width);
     margin: 0 auto;
     padding: 0 var(--container-padding);
+    flex: 1;
 }
 
 .btn {

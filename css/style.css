@@ -424,6 +424,10 @@ footer {
 
 .hero-content h1 {
     margin-bottom: 53px;
+    /* Modern text wrapping for balanced lines */
+    text-wrap: balance;
+    /* Better line-height using unitless value */
+    line-height: 1.2;
 }
 
 .about {
@@ -517,6 +521,10 @@ footer {
         max-width: 100%;
     }
 
+    .hero-content h1 {
+        font-size: 32px;
+    }
+
     .hero-image img {
         width: 100%;
     }
@@ -536,6 +544,13 @@ footer {
 
     .contact-cta .line {
         display: none;
+    }
+}
+
+/* Medium screens: slightly larger font */
+@media (min-width: 601px) and (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 40px;
     }
 }
 

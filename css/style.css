@@ -170,6 +170,93 @@ a {
     gap: var(--spacing-md);
 }
 
+/* Info Bar */
+.info-bar {
+    background-color: var(--grayish-dark-blue);
+    color: var(--white);
+    padding: 12px 0;
+    font-size: 14px;
+}
+
+.info-bar-content {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+.info-bar-left {
+    display: flex;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+.info-bar-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.info-bar-item a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.info-bar-item a:hover {
+    color: var(--cyan);
+}
+
+.info-bar-right {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: center;
+}
+
+.info-bar-social {
+    display: flex;
+    gap: var(--spacing-md);
+    list-style: none;
+}
+
+.info-bar-social a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.info-bar-social a:hover {
+    color: var(--cyan);
+}
+
+/* Mobile styles for info bar */
+@media (max-width: 767px) {
+    .info-bar {
+        font-size: 12px;
+        padding: 10px 0;
+    }
+
+    .info-bar-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-sm);
+    }
+
+    .info-bar-left {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+
+    .info-bar-right {
+        width: 100%;
+    }
+}
+
 /* Navigation */
 header {
     padding: 32px 0;
@@ -455,6 +542,131 @@ footer {
 
 .about-content p {
     margin-bottom: 24px;
+}
+
+/* Skills Section */
+.skills {
+    padding: 80px 0;
+    margin-bottom: 80px;
+}
+
+.skills-header {
+    text-align: center;
+    margin-bottom: 64px;
+}
+
+.skills-header h2 {
+    margin-bottom: 16px;
+    color: var(--grayish-dark-blue);
+}
+
+.skills-header p {
+    color: var(--grayish-dark-blue);
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    max-width: var(--container-width);
+    margin: 0 auto;
+}
+
+.skill-card {
+    background: var(--white);
+    border: 1px solid var(--light-gray);
+    border-radius: 8px;
+    padding: 32px 24px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.skill-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    border-color: var(--cyan);
+}
+
+.skill-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 24px;
+    background: var(--very-light-gray);
+    border-radius: 50%;
+    color: var(--cyan);
+    transition: all 0.3s ease;
+}
+
+.skill-card:hover .skill-icon {
+    background: var(--cyan);
+    color: var(--white);
+    transform: scale(1.1);
+}
+
+.skill-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--grayish-dark-blue);
+    margin: 0;
+}
+
+/* Responsive Skills */
+@media (max-width: 1024px) {
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .skills {
+        padding: 60px 0;
+        margin-bottom: 60px;
+    }
+
+    .skills-header {
+        margin-bottom: 48px;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .skill-card {
+        padding: 24px 16px;
+    }
+
+    .skill-icon {
+        width: 64px;
+        height: 64px;
+        margin-bottom: 16px;
+    }
+
+    .skill-icon svg {
+        width: 32px;
+        height: 32px;
+    }
+
+    .skill-card h3 {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skill-card {
+        padding: 20px;
+    }
 }
 
 .contact-cta {

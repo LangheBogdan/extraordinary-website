@@ -18,6 +18,7 @@ This is a minimalist portfolio website built with vanilla HTML, CSS, and JavaScr
 ### Running the Site
 
 Open any HTML file directly in a browser:
+
 ```bash
 # Using a simple server (recommended for testing)
 python -m http.server 8000
@@ -60,6 +61,7 @@ The site uses three main page templates:
 3. **Project Detail** (e.g., `manage.html`): Hero image + project intro + background + navigation between projects
 
 All pages share:
+
 - Common header/nav with hamburger menu
 - Common footer with social links
 - `.contact-cta` section before footer
@@ -67,17 +69,19 @@ All pages share:
 ### Responsive Images
 
 All images use the `<picture>` element pattern with three breakpoints:
+
 ```html
 <picture>
-  <source media="(min-width: 1024px)" srcset="./images/.../desktop/...jpg">
-  <source media="(min-width: 768px)" srcset="./images/.../tablet/...jpg">
-  <img src="./images/.../mobile/...jpg" alt="...">
+  <source media="(min-width: 1024px)" srcset="./images/.../desktop/...jpg" />
+  <source media="(min-width: 768px)" srcset="./images/.../tablet/...jpg" />
+  <img src="./images/.../mobile/...jpg" alt="..." />
 </picture>
 ```
 
 ### CSS Architecture
 
 CSS uses custom properties defined in `:root` for:
+
 - Colors: `--cyan`, `--dark-blue`, `--grayish-dark-blue`, `--very-light-gray`, `--light-gray`, `--bright-red`
 - Fonts: `--font-heading` (Ibarra Real Nova), `--font-body` (Public Sans)
 - Spacing: `--spacing-sm` through `--spacing-xxl`
@@ -120,6 +124,7 @@ Two main features in `js/main.js`:
 ### Form Behavior
 
 The contact form (`contact.html`) currently shows an alert on successful validation. To implement actual submission:
+
 - Modify the `if (isValid)` block in `js/main.js` (lines 66-70)
 - Add fetch/XMLHttpRequest to submit data to backend
 - The form has `novalidate` attribute to use custom validation

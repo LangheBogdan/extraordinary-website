@@ -16,3 +16,5 @@
 
 # Qodana configuration
 qodana.yaml
+
+.playwright-mcp

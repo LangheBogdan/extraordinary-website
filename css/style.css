@@ -604,10 +604,18 @@ footer {
   transition: all 0.3s ease;
 }
 
+.skill-icon img {
+  transition: all 0.3s ease;
+}
+
 .skill-card:hover .skill-icon {
   background: var(--cyan);
   color: var(--white);
   transform: scale(1.1);
+}
+
+.skill-card:hover .skill-icon img {
+  filter: brightness(0) invert(1);
 }
 
 .skill-card h3 {
@@ -650,7 +658,7 @@ footer {
     margin-bottom: 16px;
   }
 
-  .skill-icon svg {
+  .skill-icon img {
     width: 32px;
     height: 32px;
   }

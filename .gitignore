@@ -25,3 +25,9 @@ node_modules/
 qodana.yaml
 
 .playwright-mcp
+TODO.md
+dist/
+coverage/
+*.env
+*.log
+build/

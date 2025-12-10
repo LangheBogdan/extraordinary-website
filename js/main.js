@@ -1,6 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
   // CSS-only hamburger menu - no JavaScript needed for navigation toggle
 
+  // Smooth Scroll for About Me Button
+  const aboutButton = document.querySelector('a[href="#about"]');
+  if (aboutButton) {
+    aboutButton.addEventListener("click", (e) => {
+      e.preventDefault();
+      const aboutSection = document.getElementById("about");
+      if (aboutSection) {
+        aboutSection.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    });
+  }
+
   // Form Validation
   const contactForm = document.getElementById("contact-form");
   if (contactForm) {

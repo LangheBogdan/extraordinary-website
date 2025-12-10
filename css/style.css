@@ -39,6 +39,11 @@
   padding: 0;
 }
 
+/* Smooth scrolling for all anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;

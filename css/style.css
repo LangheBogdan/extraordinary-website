@@ -3,6 +3,7 @@
 :root {
   /* Colors */
   --cyan: #5fb4a2;
+  --cyan-dark: #168070; /* Accessible cyan for text on light backgrounds (4.5:1 contrast) */
   --dark-blue: #203a4c;
   --grayish-dark-blue: #33323d;
   --very-light-gray: #fafafa;
@@ -290,7 +291,7 @@ nav {
 
 .nav-links a:hover,
 .nav-links a.active {
-  color: var(--cyan);
+  color: var(--cyan-dark);
 }
 
 /* CSS-only Hamburger Menu - Hidden on Desktop */
@@ -491,7 +492,7 @@ footer {
 
   .nav-links a:hover,
   .nav-links a.active {
-    color: var(--cyan);
+    color: var(--cyan-dark);
   }
 }
 
@@ -605,7 +606,7 @@ footer {
   margin: 0 auto 24px;
   background: var(--very-light-gray);
   border-radius: 50%;
-  color: var(--cyan);
+  color: var(--cyan-dark);
   transition: all 0.3s ease;
 }
 
@@ -902,7 +903,7 @@ footer {
 .meta-label {
   display: block;
   font-weight: 700;
-  color: var(--cyan);
+  color: var(--cyan-dark);
   font-size: 13px;
   margin-bottom: 16px;
 }
@@ -1047,7 +1048,7 @@ footer {
 }
 
 .social-links-contact a:hover svg {
-  fill: var(--cyan);
+  fill: var(--cyan-dark);
 }
 
 .contact-form-container {

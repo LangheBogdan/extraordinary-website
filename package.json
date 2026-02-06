@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "build": "echo 'No build needed'"
+  },
   "devDependencies": {
     "prettier": "3.7.4"
   }

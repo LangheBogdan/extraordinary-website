@@ -1,6 +1,8 @@
 {
+  "name": "minimalist-portfolio-website",
+  "version": "1.0.0",
   "scripts": {
-    "build": "echo 'No build needed'"
+    "build": "mkdir -p dist && cp -rv css js images *.html dist"
   },
   "devDependencies": {
     "prettier": "3.7.4"

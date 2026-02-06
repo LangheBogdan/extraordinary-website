@@ -1,5 +1,5 @@
 services:
   - type: static
     name: extraordinary-website
-    buildCommand: "echo 'Static site - no build needed'"
-    publishPath: "."
+    buildCommand: "npm run build"
+    publishPath: "dist"

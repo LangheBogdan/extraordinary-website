@@ -1,0 +1,6 @@
+services:
+  - type: static
+    name: extraordinary-website
+    env: static
+    buildCommand: ""
+    publishPath: "./"

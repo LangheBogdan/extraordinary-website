@@ -2,7 +2,8 @@
   "name": "minimalist-portfolio-website",
   "version": "1.0.0",
   "scripts": {
-    "build": "mkdir -p dist && cp -rv css js images *.html dist"
+    "build": "mkdir -p dist && cp -rv css js images *.html dist",
+    "postinstall": "npm run build"
   },
   "devDependencies": {
     "prettier": "3.7.4"

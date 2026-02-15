@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
   // CSS-only hamburger menu - no JavaScript needed for navigation toggle
 
   // Smooth Scroll for About Me Button
@@ -83,7 +85,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function isValidEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
+    return EMAIL_REGEX.test(email);
   }
 });

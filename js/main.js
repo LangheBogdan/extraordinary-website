@@ -19,50 +19,55 @@ document.addEventListener("DOMContentLoaded", () => {
   // Form Validation
   const contactForm = document.getElementById("contact-form");
   if (contactForm) {
+    const nameInput = document.getElementById("name");
+    const emailInput = document.getElementById("email");
+    const messageInput = document.getElementById("message");
+
+    const nameParent = nameInput.parentElement;
+    const emailParent = emailInput.parentElement;
+    const messageParent = messageInput.parentElement;
+
+    const emailErrorSpan = emailParent.querySelector(".error-message");
+
+    const inputs = [nameInput, emailInput, messageInput];
+    const parents = [nameParent, emailParent, messageParent];
+
     contactForm.addEventListener("submit", (e) => {
       e.preventDefault();
       let isValid = true;
 
-      const nameInput = document.getElementById("name");
-      const emailInput = document.getElementById("email");
-      const messageInput = document.getElementById("message");
-
       // Reset errors
-      [nameInput, emailInput, messageInput].forEach((input) => {
-        input.parentElement.classList.remove("error");
+      parents.forEach((parent) => {
+        parent.classList.remove("error");
       });
 
       // Validate Name
       if (nameInput.value.trim() === "") {
-        nameInput.parentElement.classList.add("error");
+        nameParent.classList.add("error");
         isValid = false;
       }
 
       // Validate Email
       if (emailInput.value.trim() === "") {
-        emailInput.parentElement.classList.add("error");
+        emailParent.classList.add("error");
         isValid = false;
       } else if (!isValidEmail(emailInput.value)) {
-        emailInput.parentElement.classList.add("error");
-        // Ideally update message to "Please use a valid email address" but design shows generic error styling or specific text?
-        // Design requirement: "The `Email Address` is not formatted correctly should show 'Please use a valid email address'"
-        // My HTML has "This field is required" hardcoded. I should update text dynamically or have two error messages.
-        // For simplicity, I'll update the text content.
-        const errorSpan =
-          emailInput.parentElement.querySelector(".error-message");
-        if (errorSpan)
-          errorSpan.textContent = "Please use a valid email address";
+        emailParent.classList.add("error");
+        // Update message to "Please use a valid email address"
+        if (emailErrorSpan) {
+          emailErrorSpan.textContent = "Please use a valid email address";
+        }
         isValid = false;
       } else {
         // Reset message if valid (in case it was changed)
-        const errorSpan =
-          emailInput.parentElement.querySelector(".error-message");
-        if (errorSpan) errorSpan.textContent = "This field is required";
+        if (emailErrorSpan) {
+          emailErrorSpan.textContent = "This field is required";
+        }
       }
 
       // Validate Message
       if (messageInput.value.trim() === "") {
-        messageInput.parentElement.classList.add("error");
+        messageParent.classList.add("error");
         isValid = false;
       }
 
@@ -74,7 +79,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Clear error on input
-    const inputs = contactForm.querySelectorAll("input, textarea");
     inputs.forEach((input) => {
       input.addEventListener("input", () => {
         input.parentElement.classList.remove("error");

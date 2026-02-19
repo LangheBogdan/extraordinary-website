@@ -67,9 +67,43 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       if (isValid) {
-        // Form is valid, would submit here.
-        alert("Message sent successfully! (Demo)");
-        contactForm.reset();
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton.textContent;
+
+        // UI Feedback: Disable button and show loading state
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending...";
+        submitButton.classList.add("btn-disabled");
+
+        const formData = new FormData(contactForm);
+        const data = Object.fromEntries(formData.entries());
+
+        fetch("https://httpbin.org/post", {
+          method: "POST",
+          body: JSON.stringify(data),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response) => {
+            if (response.ok) {
+              alert("Message sent successfully!");
+              contactForm.reset();
+            } else {
+              throw new Error("Form submission failed");
+            }
+          })
+          .catch((error) => {
+            console.error("Error submitting form:", error);
+            alert(
+              "There was a problem submitting your form. Please try again.",
+            );
+          })
+          .finally(() => {
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
+            submitButton.classList.remove("btn-disabled");
+          });
       }
     });
 

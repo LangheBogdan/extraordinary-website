@@ -1,0 +1,52 @@
+<<<<<<< SEARCH
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Jane Appleseed"
+                  required
+                />
+=======
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Jane Appleseed"
+                  required
+                  maxlength="100"
+                />
+>>>>>>> REPLACE
+<<<<<<< SEARCH
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="email@example.com"
+                  required
+                />
+=======
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="email@example.com"
+                  required
+                  maxlength="100"
+                />
+>>>>>>> REPLACE
+<<<<<<< SEARCH
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="How can I help?"
+                  required
+                ></textarea>
+=======
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="How can I help?"
+                  required
+                  maxlength="1000"
+                ></textarea>
+>>>>>>> REPLACE

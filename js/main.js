@@ -5,16 +5,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Smooth Scroll for About Me Button
   const aboutButton = document.querySelector('a[href="#about"]');
-  if (aboutButton) {
+  const aboutSection = document.getElementById("about");
+  if (aboutButton && aboutSection) {
     aboutButton.addEventListener("click", (e) => {
       e.preventDefault();
-      const aboutSection = document.getElementById("about");
-      if (aboutSection) {
-        aboutSection.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }
+      aboutSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     });
   }
 

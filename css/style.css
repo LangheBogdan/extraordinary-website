@@ -518,9 +518,7 @@ footer {
 
 .hero-content h1 {
   margin-bottom: 53px;
-  /* Modern text wrapping for balanced lines */
   text-wrap: balance;
-  /* Better line-height using unitless value */
   line-height: 1.2;
 }
 
@@ -713,11 +711,9 @@ footer {
     max-width: 100%;
     padding: 56px 56px 0 0;
     margin-top: -50px;
-    /* Overlap effect if desired, or just stack */
     background-color: var(--white);
   }
 
-  /* Adjust for tablet layout where image is full width and content overlaps or sits below */
   .hero-content {
     position: absolute;
     bottom: 0;
@@ -729,15 +725,12 @@ footer {
 
   .about {
     flex-direction: column;
-    /* Or keep row but adjust gap */
     gap: 48px;
     margin-bottom: 96px;
   }
 
   .about-image {
     width: 100%;
-    /* Make image full width on tablet if needed, or keep side by side */
-    /* Actually design shows side by side on tablet usually, let's check breakpoints */
   }
 }
 

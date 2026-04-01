@@ -19,13 +19,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // Form Validation
   const contactForm = document.getElementById("contact-form");
   if (contactForm) {
+    const nameInput = document.getElementById("name");
+    const emailInput = document.getElementById("email");
+    const messageInput = document.getElementById("message");
+
     contactForm.addEventListener("submit", (e) => {
       e.preventDefault();
       let isValid = true;
-
-      const nameInput = document.getElementById("name");
-      const emailInput = document.getElementById("email");
-      const messageInput = document.getElementById("message");
 
       // Reset errors
       [nameInput, emailInput, messageInput].forEach((input) => {
@@ -60,12 +60,26 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // Clear error on input
-    const inputs = contactForm.querySelectorAll("input, textarea");
-    inputs.forEach((input) => {
-      input.addEventListener("input", () => {
-        input.parentElement.classList.remove("error", "format-error");
-      });
+    // Live validation on input
+    nameInput.addEventListener("input", () => {
+      if (nameInput.value.trim() !== "") {
+        nameInput.parentElement.classList.remove("error");
+      }
+    });
+
+    emailInput.addEventListener("input", () => {
+      const val = emailInput.value.trim();
+      if (val === "" || isValidEmail(val)) {
+        emailInput.parentElement.classList.remove("error", "format-error");
+      } else {
+        emailInput.parentElement.classList.add("error", "format-error");
+      }
+    });
+
+    messageInput.addEventListener("input", () => {
+      if (messageInput.value.trim() !== "") {
+        messageInput.parentElement.classList.remove("error");
+      }
     });
   }
 

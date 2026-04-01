@@ -1124,3 +1124,24 @@ footer {
     margin-bottom: 80px;
   }
 }
+
+/* Form Feedback Banner */
+.form-feedback {
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  border-left: 4px solid transparent;
+}
+
+.form-feedback--success {
+  background-color: #e8f5e9;
+  color: #1b5e20;
+  border-left-color: #4caf50;
+}
+
+.form-feedback--error {
+  background-color: #fce4ec;
+  color: #b71c1c;
+  border-left-color: var(--bright-red);
+}

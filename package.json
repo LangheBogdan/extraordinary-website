@@ -1,10 +1,21 @@
 {
   "name": "minimalist-portfolio-website",
   "version": "1.0.0",
+  "type": "module",
+  "main": "server.js",
   "scripts": {
-    "build": "rm -rf dist && mkdir -p dist && cp -rv css js images *.html dist"
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "build": "rm -rf dist && mkdir -p dist && cp -rv css js images *.html dist",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.3.1",
+    "nodemailer": "^8.0.4"
   },
   "devDependencies": {
+    "dotenv": "^16.4.5",
     "prettier": "3.7.4"
   }
 }

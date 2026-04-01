@@ -1101,7 +1101,12 @@ footer {
   margin-top: 4px;
 }
 
-.form-group.error .error-message {
+.form-group.error .error-message[data-error="required"],
+.form-group.error .error-message:not([data-error]) {
+  display: block;
+}
+
+.form-group.format-error .error-message[data-error="format"] {
   display: block;
 }
 

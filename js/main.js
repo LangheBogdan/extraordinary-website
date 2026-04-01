@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Reset errors
       [nameInput, emailInput, messageInput].forEach((input) => {
-        input.parentElement.classList.remove("error");
+        input.parentElement.classList.remove("error", "format-error");
       });
 
       // Validate Name
@@ -43,21 +43,8 @@ document.addEventListener("DOMContentLoaded", () => {
         emailInput.parentElement.classList.add("error");
         isValid = false;
       } else if (!isValidEmail(emailInput.value)) {
-        emailInput.parentElement.classList.add("error");
-        // Ideally update message to "Please use a valid email address" but design shows generic error styling or specific text?
-        // Design requirement: "The `Email Address` is not formatted correctly should show 'Please use a valid email address'"
-        // My HTML has "This field is required" hardcoded. I should update text dynamically or have two error messages.
-        // For simplicity, I'll update the text content.
-        const errorSpan =
-          emailInput.parentElement.querySelector(".error-message");
-        if (errorSpan)
-          errorSpan.textContent = "Please use a valid email address";
+        emailInput.parentElement.classList.add("error", "format-error");
         isValid = false;
-      } else {
-        // Reset message if valid (in case it was changed)
-        const errorSpan =
-          emailInput.parentElement.querySelector(".error-message");
-        if (errorSpan) errorSpan.textContent = "This field is required";
       }
 
       // Validate Message
@@ -77,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const inputs = contactForm.querySelectorAll("input, textarea");
     inputs.forEach((input) => {
       input.addEventListener("input", () => {
-        input.parentElement.classList.remove("error");
+        input.parentElement.classList.remove("error", "format-error");
       });
     });
   }

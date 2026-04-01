@@ -4,7 +4,7 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 import express from "express";
-import { createTransport } from "nodemailer";
+import { Resend } from "resend";
 import rateLimit from "express-rate-limit";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
@@ -41,17 +41,11 @@ app.post("/api/contact", contactLimiter, async (req, res) => {
     return res.status(400).json({ error: "Input exceeds maximum length." });
   }
 
-  const transporter = createTransport({
-    service: "gmail",
-    auth: {
-      user: process.env.GMAIL_USER,
-      pass: process.env.GMAIL_APP_PASSWORD,
-    },
-  });
+  const resend = new Resend(process.env.RESEND_API_KEY);
 
   try {
-    await transporter.sendMail({
-      from: `"Portfolio Contact" <${process.env.GMAIL_USER}>`,
+    await resend.emails.send({
+      from: "Portfolio Contact <onboarding@resend.dev>",
       to: process.env.RECIPIENT_EMAIL,
       replyTo: email,
       subject: `Portfolio contact from ${name}`,
@@ -62,7 +56,7 @@ app.post("/api/contact", contactLimiter, async (req, res) => {
     });
     res.json({ success: true });
   } catch (err) {
-    console.error("Nodemailer error:", err);
+    console.error("Resend error:", err);
     res.status(500).json({ error: "Failed to send message. Please try again." });
   }
 });

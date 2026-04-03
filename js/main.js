@@ -71,13 +71,24 @@ document.addEventListener("DOMContentLoaded", () => {
           .then((res) => res.json().then((data) => ({ ok: res.ok, data })))
           .then(({ ok, data }) => {
             if (ok) {
-              showFormFeedback("success", "Message sent! I'll be in touch soon.");
+              showFormFeedback(
+                "success",
+                "Message sent! I'll be in touch soon.",
+              );
               contactForm.reset();
             } else {
-              showFormFeedback("error", data.error || "Something went wrong. Please try again.");
+              showFormFeedback(
+                "error",
+                data.error || "Something went wrong. Please try again.",
+              );
             }
           })
-          .catch(() => showFormFeedback("error", "Network error. Please check your connection."))
+          .catch(() =>
+            showFormFeedback(
+              "error",
+              "Network error. Please check your connection.",
+            ),
+          )
           .finally(() => {
             submitBtn.disabled = false;
             submitBtn.textContent = "Send Message";
@@ -120,7 +131,10 @@ document.addEventListener("DOMContentLoaded", () => {
     banner.className = `form-feedback form-feedback--${type}`;
     banner.textContent = message;
     banner.setAttribute("role", "alert");
-    contactForm.insertBefore(banner, contactForm.querySelector('button[type="submit"]'));
+    contactForm.insertBefore(
+      banner,
+      contactForm.querySelector('button[type="submit"]'),
+    );
     setTimeout(() => banner.remove(), 8000);
   }
 });

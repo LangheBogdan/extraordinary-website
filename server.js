@@ -7,10 +7,11 @@ import express from "express";
 import { Resend } from "resend";
 import rateLimit from "express-rate-limit";
 import { fileURLToPath } from "url";
-import { dirname } from "path";
+import path, { dirname } from "path";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+const publicPath = path.join(__dirname, "dist");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -24,7 +25,7 @@ const contactLimiter = rateLimit({
   message: { error: "Too many requests. Please try again later." },
 });
 
-app.use(express.static(__dirname));
+app.use(express.static(publicPath));
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -57,10 +58,17 @@ app.post("/api/contact", contactLimiter, async (req, res) => {
     res.json({ success: true });
   } catch (err) {
     console.error("Resend error:", err);
-    res.status(500).json({ error: "Failed to send message. Please try again." });
+    res
+      .status(500)
+      .json({ error: "Failed to send message. Please try again." });
   }
 });
 
-app.get("*", (req, res) => res.sendFile("index.html", { root: __dirname }));
+app.get("*", (req, res) => {
+  if (req.path.includes(".")) return res.status(404).end();
+  res.sendFile("index.html", { root: publicPath });
+});
 
-app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
+app.listen(PORT, () =>
+  console.log(`Server running at http://localhost:${PORT}`),
+);
